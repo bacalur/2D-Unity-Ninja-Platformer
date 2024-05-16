@@ -14,10 +14,9 @@ public class PlayerCrouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Q - присед
+        // Q - crouch
         if (Input.GetKey(KeyCode.Q))
         {
-            // Анимация приседа
             animator.SetTrigger("Crouch");
         }
     }
