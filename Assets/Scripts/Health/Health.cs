@@ -23,8 +23,8 @@ public class Health : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        LoadHealth(); // Загрузка сохраненного количества сердец при запуске сцены
-        UpdateHeartsUI(); // Обновление UI сердец
+        LoadHealth(); // Loading the saved number of hearts when the scene is launched
+        UpdateHeartsUI(); // Updating the hearts UI
     }
 
     private void FixedUpdate()
@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
             currentHealth = numOfHearts;
         }
 
-        UpdateHeartsUI(); // Обновление UI сердец
+        UpdateHeartsUI(); 
     }
 
     public void TakeDemage(float _damage)
@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
         {
             // player dead
             animator.SetTrigger("Death");
-            SaveHealth(); // Сохранение количества сердец перед перезагрузкой сцены
+            SaveHealth(); // Saving the number of hearts before reloading the scene
             Invoke("ReloadScene", 2f);
         }
     }
@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    // Загрузка сохраненного количества сердец
+    // Loading the saved number of hearts
     void LoadHealth()
     {
         if (PlayerPrefs.HasKey("Health"))
@@ -76,33 +76,29 @@ public class Health : MonoBehaviour
         }
     }
 
-    // Сохранение количества сердец
     void SaveHealth()
     {
         PlayerPrefs.SetFloat("Health", currentHealth);
         PlayerPrefs.Save();
     }
 
-    // Загрузка сцены
     void ReloadScene()
     {
         if (currentHealth <= 0)
         {
-            LoadMenuScene(); // Загрузка сцены меню, если нет заполненных сердец
+            LoadMenuScene(); // Loading the menu scene if there are no filled hearts
         }
         else
         {
-            SceneManager.LoadScene(1); // Загрузка сцены игры
+            SceneManager.LoadScene(1);
         }
     }
 
-    // Загрузка сцены меню
     void LoadMenuScene()
     {
         SceneManager.LoadScene(0);
     }
 
-    // Обновление UI сердец
     void UpdateHeartsUI()
     {
         for (int i = 0; i < hearts.Length; i++)
