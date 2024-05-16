@@ -7,8 +7,6 @@ public class PlayerDeath : MonoBehaviour
 {
     public Animator animator;
 
-
-
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -18,17 +16,14 @@ public class PlayerDeath : MonoBehaviour
     {
         if (collision.tag == "Respawn")
         {
-            // Анимация смерти игрока
+            // Player death animation
             animator.SetTrigger("Death");
 
-            // Загрузка сцены после задержки в 2 секунды
+            // Loading the scene after a 2-second delay
             Invoke("ReloadScene", 2f);
-
-
         }
     }
 
-    // Загрузка сцены
     void ReloadScene()
     {
         SceneManager.LoadScene(1);
