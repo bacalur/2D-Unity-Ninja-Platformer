@@ -10,7 +10,6 @@ public class PlatformFallLevelAgain : MonoBehaviour
     {
         if (transform.position.y < -10f)
         {
-            // Уровень заново
             SceneManager.LoadScene(0);
         }
     }
