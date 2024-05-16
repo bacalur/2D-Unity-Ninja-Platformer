@@ -18,13 +18,6 @@ public class DiamondPicker : MonoBehaviour
             diamonds++;
             diamondsText.text = diamonds.ToString();
             Destroy(coll.gameObject);
-
-            //if (diamonds > 0)
-            //{
-            //    StartCoroutine(ImageAfterDelay(3f));
-
-
-            //}
         }
     }
 }
