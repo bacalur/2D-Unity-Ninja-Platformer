@@ -20,11 +20,11 @@ public class AudioController : MonoBehaviour
 
     void Start()
     {
-        // Загружаем сохраненные значения из PlayerPrefs
+        // Loading saved values from PlayerPrefs
         isMusicEnabled = PlayerPrefs.GetInt(MusicEnabledKey, 1) == 1;
         musicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 1f);
 
-        // Проверяем сохраненное состояние музыки
+        // Checking the saved music state
         if (isMusicEnabled)
         {
             audioSource.Play();
@@ -36,10 +36,10 @@ public class AudioController : MonoBehaviour
             buttonAudio.GetComponent<Image>().sprite = audioOff;
         }
 
-        // Устанавливаем сохраненное значение громкости
+        // Setting the saved volume value
         audioSource.volume = musicVolume;
 
-        // Устанавливаем значение слайдера громкости
+        // Setting the volume slider value
         slider.value = musicVolume;
     }
 
@@ -63,7 +63,7 @@ public class AudioController : MonoBehaviour
             buttonAudio.GetComponent<Image>().sprite = audioOff;
         }
 
-        // Сохраняем состояние музыки в PlayerPrefs
+        // Saving the music state in PlayerPrefs
         PlayerPrefs.SetInt(MusicEnabledKey, isMusicEnabled ? 1 : 0);
         PlayerPrefs.Save();
     }
