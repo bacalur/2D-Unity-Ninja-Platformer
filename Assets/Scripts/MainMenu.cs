@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        // Сброс сохраненного количества сердец
+        // Reset saved number of hearts
         PlayerPrefs.DeleteKey("Health");
         PlayerPrefs.Save();
 
