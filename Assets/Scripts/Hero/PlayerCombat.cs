@@ -16,7 +16,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        // ЛКМ - атака
+        // Left mouse button - attack
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
@@ -25,10 +25,9 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        // Анимация атаки
         animator.SetTrigger("Attack");
 
-        // Проверка столкновения игрока с врагом и вызов анимации смерти врага
+        // Checking for player collision with an enemy and triggering the enemy death animation
         if (meleeEnemy != null && meleeEnemy.PlayerInSight())
         {
             meleeEnemy.Die();
