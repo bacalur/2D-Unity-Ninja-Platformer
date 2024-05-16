@@ -38,11 +38,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // Загружаем сохраненные значения из PlayerPrefs
+        // Loading saved values from PlayerPrefs
         AudioManager.IsMusicEnabled = PlayerPrefs.GetInt("IsMusicEnabled", 1) == 1;
         AudioManager.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
 
-        // Проверяем сохраненное состояние музыки
+        // Checking the saved music state
         if (AudioManager.IsMusicEnabled)
         {
             audioSource.Play();
@@ -52,13 +52,13 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop();
         }
 
-        // Устанавливаем сохраненное значение громкости музыки
+        // Setting the saved music volume value
         audioSource.volume = AudioManager.MusicVolume;
     }
 
     private void OnDestroy()
     {
-        // Сохраняем значения в PlayerPrefs при уничтожении объекта
+        // Saving values to PlayerPrefs when the object is destroyed
         PlayerPrefs.SetInt("IsMusicEnabled", AudioManager.IsMusicEnabled ? 1 : 0);
         PlayerPrefs.SetFloat("MusicVolume", AudioManager.MusicVolume);
     }
