@@ -27,12 +27,4 @@ public class DiamondPicker : MonoBehaviour
             //}
         }
     }
-
-    //private IEnumerator ImageAfterDelay(float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-    //    // показать победную фотографию
-
-
-    //}
 }
